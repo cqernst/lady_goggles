@@ -1,0 +1,11 @@
+{
+  "name": "lady_goggles",
+  "version": "1.0.0",
+  "description": "Prototyping an AR app that will allow users to see examples of how the world could look if the accomplishments of people from all genders received the same recognition as those of cis-gendered men",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
