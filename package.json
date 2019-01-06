@@ -7,13 +7,19 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "^32.0.0",
+    "@babel/core": "^7.2.2",
+    "expo": "^21.0.2",
     "expo-asset-utils": "0.0.5",
+    "expo-font-interface": "^1.1.0",
     "expo-graphics": "git://github.com/expo/expo-graphics.git",
+    "expo-react-native-adapter": "^1.2.0",
     "expo-three": "^3.0.0-alpha.6",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
-    "three": "^0.100.0"
+    "install-peers": "^1.0.3",
+    "react": "^16.5.0",
+    "react-native": "^0.57.8",
+    "scheduler": "^0.12.0",
+    "three": "^0.100.0",
+    "webpack": "^4.28.3"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"

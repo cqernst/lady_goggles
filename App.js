@@ -100,76 +100,23 @@
 //   };
 // }
 
-
-
+// boilerplate start
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
 import * as THREE from 'three';
-import ExpoTHREE, {AR as ThreeAR} from 'expo-three';
+import ExpoTHREE from 'expo-three';
+import Expo from 'expo';
 
-import {MapView, GLView, AR} from 'expo';
-
-console.disableYellowBox = true;
-
-
-
-export default class App extends React.Component {  
-  constructor() {
-    super()
-    state = {
-      glView: null,
-    }
-  }
-
-
+export default class App extends React.Component {
   render() {
     return (
-    //   <MapView
-    //   style={{ flex: 1 }}
-    //   initialRegion={{
-    //     latitude: 37.78825,
-    //     longitude: -122.4324,
-    //     latitudeDelta: 0.0922,
-    //     longitudeDelta: 0.0421,
-    //   }}
-    // />
-      <GLView
-        ref={(ref) => this._glView = ref}
-        style={{ flex: 1 }}
-        onContextCreate={this._onGLContextCreate}
-      />
+      <Expo.GLView style={{flex: 1}} />
     );
   }
-
-  _onGLContextCreate = async (gl) => {
-    console.log("GLView", GLView)
-    const arSession = AR.startAsync(gl);
-    console.log("below AR Session")
-    // const arSession = await this._glView.startARSessionAsync();
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, gl.drawingBufferWidth / gl.drawingBufferHeight, 0.1, 1000);
-    const renderer = new ExpoTHREE.Renderer({gl});
-    renderer.setSize(gl.drawingBufferWidth, gl.drawingBufferHeight);
-    scene.background = ExpoTHREE.createARBackgroundTexture(arSession, renderer);
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-    camera.position.z = 5;
-    const animate = () => {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.07;
-      cube.rotation.y += 0.04;
-      renderer.render(scene, camera);
-      gl.endFrameEXP();
-    }
-    animate();
-  }
 }
-
-
-
+/* <View style={styles.container}>
+        <Text>Open up App.js to start working on your app!</Text>
+</View> */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -178,3 +125,74 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+// boilerplate end
+
+
+// import React from 'react';
+// import { StyleSheet, Text, View } from 'react-native';
+
+// import * as THREE from 'three';
+// import ExpoTHREE, {AR as ThreeAR} from 'expo-three';
+
+// import {MapView, GLView, AR} from 'expo';
+
+// console.disableYellowBox = true;
+
+
+
+// export default class App extends React.Component {  
+//   constructor() {
+//     super()
+//     state = {
+//       glView: null,
+//     }
+//   }
+
+
+//   render() {
+//     return (
+//     //   <MapView
+//     //   style={{ flex: 1 }}
+//     //   initialRegion={{
+//     //     latitude: 37.78825,
+//     //     longitude: -122.4324,
+//     //     latitudeDelta: 0.0922,
+//     //     longitudeDelta: 0.0421,
+//     //   }}
+//     // />
+//       <GLView
+//         ref={(ref) => this._glView = ref}
+//         style={{ flex: 1 }}
+//         onContextCreate={this._onGLContextCreate}
+//       />
+//     );
+//   }
+
+//   _onGLContextCreate = async (gl) => {
+//     console.log("GLView", GLView)
+//     const arSession = AR.startAsync(gl);
+//     console.log("below AR Session")
+//     // const arSession = await this._glView.startARSessionAsync();
+//     const scene = new THREE.Scene();
+//     const camera = new THREE.PerspectiveCamera(75, gl.drawingBufferWidth / gl.drawingBufferHeight, 0.1, 1000);
+//     const renderer = new ExpoTHREE.Renderer({gl});
+//     renderer.setSize(gl.drawingBufferWidth, gl.drawingBufferHeight);
+//     scene.background = ExpoTHREE.createARBackgroundTexture(arSession, renderer);
+//     const geometry = new THREE.BoxGeometry(1, 1, 1);
+//     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+//     const cube = new THREE.Mesh(geometry, material);
+//     scene.add(cube);
+//     camera.position.z = 5;
+//     const animate = () => {
+//       requestAnimationFrame(animate);
+//       cube.rotation.x += 0.07;
+//       cube.rotation.y += 0.04;
+//       renderer.render(scene, camera);
+//       gl.endFrameEXP();
+//     }
+//     animate();
+//   }
+// }
+
+
+
